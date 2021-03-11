@@ -7,15 +7,11 @@ export default function App() {
   const [count, setCount] = useState(0)
   const [validCode, setValidCode] = useState('')  /*為輸入框宣告一個變數*/
   const [inputJudgeButtonResult, setInputJudgeButtonSetResult] = useState('')
-  const inputJudge = () => {
-    if (validCode.length < 4) {
+  const inputJudgeButton = () => {
+    if
+      (inputJudgeButtonResult.length > 0 & inputJudgeButtonResult.length < 4) {
       return (<Text style={styles.inputRight}>請輸入您的密碼</Text>
       )
-    }
-  }
-  const inputJudgeButton = () => {
-    if (inputJudgeButtonResult.length < 4) {
-      return <Text style={styles.inputRight}></Text>
     } else {
       if (inputJudgeButtonResult === '1234') {
         return <Text style={styles.inputRight}>密碼輸入正確！</Text>
@@ -24,7 +20,6 @@ export default function App() {
       }
     }
   }
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}
     >
@@ -44,14 +39,11 @@ export default function App() {
           autoFocus={true}  /*自動焦點*/
         />
         {/* 顯示輸入的內容 */}
-        <Text>{inputJudge()}{inputJudgeButton()}</Text>
-
-
+        <Text>{inputJudgeButton()}</Text>
 
         <TouchableOpacity
           style={styles.containerOpacity}
-          onPress={() => setInputJudgeButtonSetResult(validCode)}
-        >
+          onPress={() => setInputJudgeButtonSetResult(validCode)}>
           <Image
             style={{ width: 300, height: 103 }}
             source={require('./src/image/button.png')}
@@ -69,6 +61,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
+    padding: 1
   },
   mainText: {
     fontSize: 16,
